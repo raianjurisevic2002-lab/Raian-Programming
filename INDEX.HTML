@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Candy Crush</title>
- <link rel="stylesheet" href="candy.css">
- <script src="script.js"></script>
- 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candy Crush</title>
+    <link rel="stylesheet" href="candy.css">
+    <script src="script.js"></script>
+
 </head>
+
 <body>
     <h1>Score: <span id="score">0</span></h1>
+    <h4>Reach 500 points to win!</h4>
     <div id="board">
-
-
     </div>
-  
+    <!--the win pop-up, it is hidden until the player wins-->
+    <div id="winPopup">
+        <div id="winBox">
+            <h2>You Win!</h2>
+            <p>You reached <span id="finalScore">0</span> points.</p>
+            <button onclick="restartGame()">Play Again</button>
+        </div>
+    </div>
+
+
 </body>
+
 </html>

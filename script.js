@@ -7,12 +7,17 @@ var score = 0;
 var currTile;
 var otherTile;
 
+//new variables for the win condition//
+var winScore = 500;   //how many points you need to win//
+var gameOver = false; //this becomes true when the player wins//
+var gameLoop;         //here we save the timer so we can stop it after winning//
+
 
 window.onload = function() {
 
   startGame();
 //1/10th of a second
-  window.setInterval(function () {
+  gameLoop=window.setInterval(function () {
         crushCandy();
         slideCandy();
         generateCandy();
@@ -128,6 +133,7 @@ function crushCandy(){
   //CrushFour();
 crushThree();
 document.getElementById("score").innerText = score;
+checkWin();
 }
 
 function crushThree(){
@@ -216,4 +222,20 @@ for (let c = 0; c < colums; c++) {
     board[0][c].src = "./images/" + randomCandy() + ".png";
   }
 }
+}
+
+//----- WIN CONDITION -----//
+
+function checkWin() {
+  //if the score is big enough and we did not already win//
+  if (score >= winScore && gameOver == false) {
+    gameOver = true;
+    clearInterval(gameLoop); //stop the game so the board freezes//
+    document.getElementById("finalScore").innerText = score;
+    document.getElementById("winPopup").style.display = "flex"; //show the pop-up//
+  }
+}
+
+function restartGame() {
+  location.reload(); //just reload the whole page to start again//
 }
