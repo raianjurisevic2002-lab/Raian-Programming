@@ -16,7 +16,6 @@ var gameLoop;         //here we save the timer so we can stop it after winning//
 window.onload = function () {
 
   startGame();
-  loadTheme(); //put back the theme the player chose last time//
   document.getElementById("winScore").innerText = winScore;
   //1/10th of a second
   gameLoop = window.setInterval(function () {
