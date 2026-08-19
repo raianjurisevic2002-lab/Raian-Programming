@@ -24,6 +24,66 @@ text-align: center;
     height: 50px;
 }
 
+/*----- the little text above the board -----*/
+#target {
+    font-size: 14px;
+}
+
+/*----- the gear button in the top right corner -----*/
+#gearButton {
+    position: fixed; /*fixed keeps it in the corner even if the page scrolls*/
+    top: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    font-size: 26px;
+    line-height: 1;
+    border: 2px solid white;
+    border-radius: 50%; /*50% makes the button a circle*/
+    background-color: rgba(0, 0, 0, 0.35);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+
+/*----- THEMES -----*/
+/*each theme changes the background picture and the colors of the board*/
+
+body.candy {
+    background-image: url("./images/background.jpg");
+}
+body.candy #board {
+    background-color: lightblue;
+    border-color: slategray;
+}
+
+body.ocean {
+    background-image: url("./images/background-ocean.jpg");
+}
+body.ocean #board {
+    background-color: #a5e8f2;
+    border-color: #0d4a6b;
+}
+body.ocean h1 {
+    color: #b8f4ff;
+}
+
+body.night {
+    background-image: url("./images/background-night.jpg");
+}
+body.night #board {
+    background-color: #4a4a70;
+    border-color: #b9a7ff;
+}
+body.night h1 {
+    color: #d7c8ff;
+}
+
+/*----- the two pop-ups (settings and win) -----*/
+/*they look the same so we can style them together with a comma*/
+
+#settingsPopup,
 #winPopup {
     /*display none means hidden, JS changes this to flex to show it*/
     display: none;
@@ -38,11 +98,22 @@ text-align: center;
     align-items: center;
 }
 
+#settingsBox,
 #winBox {
     background-color: white;
     color: #333333;
     padding: 30px 40px;
     border-radius: 15px;
+}
+
+#settingsBox {
+    border: 5px solid #6a2c8f;
+    min-width: 260px;
+}
+
+#settingsBox h2 {
+    margin-top: 0;
+    color: #6a2c8f;
 }
 
 #winBox {
@@ -52,6 +123,43 @@ text-align: center;
 #winBox h2 {
     margin-top: 0;
     color: #e0a800;
+}
+
+.settingLabel {
+    text-align: left;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #888888;
+    margin-bottom: 8px;
+}
+
+/*----- the background choice buttons inside the settings -----*/
+#themeBar {
+    margin-bottom: 25px;
+}
+
+#themeBar button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    padding: 8px 16px;
+    margin: 0 3px;
+    border: 2px solid #cccccc;
+    border-radius: 20px;
+    background-color: #f2f2f2;
+    color: #333333;
+    cursor: pointer;
+}
+
+#themeBar button:hover {
+    background-color: #e0e0e0;
+}
+
+/*this class is put on the button of the theme you are using now*/
+#themeBar button.activeTheme {
+    border-color: #6a2c8f;
+    background-color: #f0e2fb;
+    color: #6a2c8f;
+    font-weight: bold;
 }
 
 /*----- the buttons at the bottom of the pop-ups -----*/
